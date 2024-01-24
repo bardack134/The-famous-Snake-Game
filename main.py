@@ -1,5 +1,6 @@
 # Importa las clases Turtle y Screen del módulo turtle
 import time
+
 from turtle import Turtle, Screen, left
 
 from snake import Snake
@@ -23,10 +24,28 @@ screen.tracer(0)
 initial_position_x=0
 
 
+#Creamos objeto de la clase snake 'ver snake.py'
+snake=Snake()
 
-snake=Snake(Turtle)
+
+#llamamos al metodo  create snake() de la clase snake
 snake.create_snake() 
     
+# La función listen() hace que la pantalla comience a escuchar los eventos del teclado
+screen.listen()
+
+# La función onkey() registra una función para que se llame cuando se presiona una tecla específica
+# En este caso, cuando se presiona la tecla "Up", se llama al metodo up de la clase Snake (snake.py)
+screen.onkey(snake.up, "Up")
+
+# Cuando se presiona la tecla "Down", se llama  al metodo down de la clase Snake (snake.py)
+screen.onkey(snake.down, "Down")
+
+# Cuando se presiona la tecla "Left", se llama al metodo left de la clase Snake (snake.py)
+screen.onkey(snake.left, "Left")
+
+# Cuando se presiona la tecla "Right", se llama al metodo right de la clase Snake (snake.py)
+screen.onkey(snake.right, "Right")
 
 
 # Inicia el juego
@@ -46,6 +65,7 @@ while game_is_on:
     # Actualiza la pantalla
     screen.update()
     
+    #llamamos al metodo snake_move() de la clase Snake en el archivo snake.py
     snake.snake_move()
     
 

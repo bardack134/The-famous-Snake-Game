@@ -1,11 +1,14 @@
+from turtle import Turtle
+
+#variables constantes
+MOVE_DISTANCE = 10
+
 class Snake():
     
     # Parametros de la clase Snake
-    def __init__(self, Turtle):
+    def __init__(self, ):
       
-      # Asigna el argumento Turtle a la propiedad Turtle del objeto Snake
-      self.Turtle = Turtle
-      
+          
       # Inicializa la propiedad initial_position_x del objeto Snake con el valor 0
       self.initial_position_x=0
       
@@ -22,7 +25,7 @@ class Snake():
         for i in range(0,3):
             
             # Crea un objeto de la clase Turtle con forma de cuadrado
-            new_segment=self.Turtle("square")
+            new_segment=Turtle("square")
 
             #levantamos el lapiz para no dejar marcas cuando movamos los segmentos de la tortuga a la posicion inical x
             new_segment.penup() 
@@ -59,5 +62,88 @@ class Snake():
         self.snake_list[i].setposition(new_x_position, new_y_position)        
     
       # Mueve el primer segmento de la serpiente hacia adelante en 10 unidades
-      self.snake_list[0].forward(10)
-              
+      self.snake_list[0].forward(MOVE_DISTANCE)
+        
+          
+    # Define el método para mover la serpiente hacia arriba
+    def up(self):
+          
+          # Si la serpiente está moviéndose hacia la derecha
+          if self.snake_list[0].heading()==0 :
+            
+            # Cambia la dirección de la serpiente a arriba
+            new_setheading=self.snake_list[0].heading() + 90
+            
+            self.snake_list[0].setheading(new_setheading)
+            
+            
+          # Si la serpiente está moviéndose hacia la izquierda
+          elif self.snake_list[0].heading()==180:
+            
+            # Cambia la dirección de la serpiente a arriba
+            new_setheading=self.snake_list[0].heading() - 90
+            
+            self.snake_list[0].setheading(new_setheading)   
+        
+            
+    # Define el método para mover la serpiente hacia abajo
+    def down(self):
+          
+          # Si la serpiente está moviéndose hacia la derecha
+          if self.snake_list[0].heading()==0: 
+            
+            # Cambia la dirección de la serpiente a abajo
+            new_setheading=self.snake_list[0].heading() + 270
+            
+            self.snake_list[0].setheading(new_setheading)
+          
+          
+          # Si la serpiente está moviéndose hacia la izquierda
+          elif self.snake_list[0].heading()==180:
+            
+            # Cambia la dirección de la serpiente a abajo
+            new_setheading=self.snake_list[0].heading() + 90
+            
+            self.snake_list[0].setheading(new_setheading)    
+            
+            
+    # Define el método para mover la serpiente hacia la izquierda
+    def left(self):
+          
+          # Si la serpiente está moviéndose hacia arriba
+          if self.snake_list[0].heading()==90: 
+            
+            # Cambia la dirección de la serpiente a la izquierda
+            new_setheading=self.snake_list[0].heading() + 90
+            
+            self.snake_list[0].setheading(new_setheading)
+          
+          
+          # Si la serpiente está moviéndose hacia abajo
+          elif self.snake_list[0].heading()==270:
+            
+            # Cambia la dirección de la serpiente a la izquierda
+            new_setheading=self.snake_list[0].heading() - 90
+            
+            self.snake_list[0].setheading(new_setheading)   
+            
+            
+    # Define el método para mover la serpiente hacia la derecha
+    def right(self):
+          
+          # Si la serpiente está moviéndose hacia arriba
+          if self.snake_list[0].heading()==90: 
+            
+            # Cambia la dirección de la serpiente a la derecha
+            new_setheading=self.snake_list[0].heading() - 90
+            
+            self.snake_list[0].setheading(new_setheading)
+          
+          
+          # Si la serpiente está moviéndose hacia abajo
+          elif self.snake_list[0].heading()==270:
+            
+            # Cambia la dirección de la serpiente a la derecha
+            new_setheading=self.snake_list[0].heading() + 90
+            
+            self.snake_list[0].setheading(new_setheading)  

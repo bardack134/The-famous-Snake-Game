@@ -7,6 +7,8 @@ from snake import Snake
 
 from food import Food
 
+from score import Score
+
 # Crea un objeto de la clase Screen
 screen=Screen()
 
@@ -22,8 +24,8 @@ screen.title("The famous Snake Game")
 #Este comando desactiva la animación en la pantalla. Esto es útil cuando se quiere dibujar algo rápidamente sin mostrar cada paso del proceso
 screen.tracer(0)
 
-
-
+#creo un objeto de la clase Score que hereda de turtle, ver score.py
+score=Score()
 
 #Creamos objeto de la clase snake 'ver snake.py'
 snake=Snake()
@@ -73,14 +75,16 @@ while game_is_on:
         
     #comparo la distancia entre la posicion de la cabeza de la snake con la distancia a la food
     if snake.snake_list[0].distance(food) < 15:
-        
-        #si la distancia entre ellos es menor que 10, corre el sgt codigo
-        print("they carshed")
-        
+                        
+        #mueve la food a una nueva posicion food.py  
         food.new_position()
+                        
+        #agrega 1 turtle con shape'square' al snake (snake.py)
+        snake.add_segment()
         
+        score.add_score()
         
-
+       
    
     
 

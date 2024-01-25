@@ -4,11 +4,7 @@ import random
 # Importa la clase Turtle del módulo turtle
 from turtle import Turtle
 
-# Genera un número aleatorio entre -280 y 280 para la coordenada x
-X=random.randint(-280, 280)
 
-# Genera un número aleatorio entre -280 y 280 para la coordenada y
-Y=random.randint(-280, 280)
 
 # Define una clase llamada Food que hereda de la clase Turtle
 class Food(Turtle):
@@ -34,7 +30,8 @@ class Food(Turtle):
         self.speed("fastest")
         
         # Mueve el objeto Food a la posición (X, Y)
-        self.setposition(X, Y)
+        self.new_position()
+
 
     def new_position(self):
         # Genera un número aleatorio entre -280 y 280 para la coordenada x
@@ -43,6 +40,7 @@ class Food(Turtle):
         # Genera un número aleatorio entre -280 y 280 para la coordenada y
         new_Y=random.randint(-280, 280)    
         
+        # Mueve el objeto Food a la posición (X, Y)
         self.setposition(new_X, new_Y)
         
 # food=Food()        

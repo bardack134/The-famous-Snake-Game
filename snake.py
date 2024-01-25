@@ -1,7 +1,7 @@
-from turtle import Turtle
+from turtle import  Turtle
 
 #variables constantes
-MOVE_DISTANCE = 10
+MOVE_DISTANCE = 15
 
 class Snake():
     
@@ -63,6 +63,23 @@ class Snake():
     
       # Mueve el primer segmento de la serpiente hacia adelante en 10 unidades
       self.snake_list[0].forward(MOVE_DISTANCE)
+    
+    
+    def add_segment(self):   
+      
+      # Crea un objeto de la clase Turtle con forma de cuadrado
+      new_segment=Turtle("square").i
+               
+      #levantamos el lapiz para no dejar marcas cuando movamos los segmentos de la tortuga a la posicion inical x
+      new_segment.penup() 
+       
+      # Cambia el color de la parte de la serpiente a blanco
+      new_segment.color("white") 
+      
+      #agregamos los objetos creados "segmentos"  a la lista vacia 
+      self.snake_list.append(new_segment)
+      
+      
         
           
     # Define el método para mover la serpiente hacia arriba

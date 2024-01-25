@@ -49,7 +49,7 @@ class Snake():
     
     def snake_move(self):
       
-      # Para cada segmento de la serpiente, empezando por el último segmento o posicion y terminando en el primer segmento o posicion dentro de la lista
+      # Para cada segmento de la serpiente, empezando por el último segmento o posicion y terminando con el segundo segmento o posicion dentro de la lista
       for i in range(len(self.snake_list)-1, 0, -1 ):
                
         # Obtiene la posición x del elemeto inmediatamente anterior, por eso le restamos - 1 a 'i'

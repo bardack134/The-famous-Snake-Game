@@ -1,9 +1,11 @@
 # Importa las clases Turtle y Screen del módulo turtle
 import time
 
-from turtle import Turtle, Screen, left
+from turtle import Turtle, Screen
 
 from snake import Snake
+
+from food import Food
 
 # Crea un objeto de la clase Screen
 screen=Screen()
@@ -20,13 +22,13 @@ screen.title("The famous Snake Game")
 #Este comando desactiva la animación en la pantalla. Esto es útil cuando se quiere dibujar algo rápidamente sin mostrar cada paso del proceso
 screen.tracer(0)
 
-# Crea una variable para guardar la posición horizontal inicial de la primera parte de la serpiente
-initial_position_x=0
+
 
 
 #Creamos objeto de la clase snake 'ver snake.py'
 snake=Snake()
 
+food=Food()
 
 #llamamos al metodo  create snake() de la clase snake
 snake.create_snake() 
@@ -59,16 +61,24 @@ game_is_on=True
 # Mientras el juego esté en marcha
 while game_is_on:
     
-    # Hace una pausa de 0.1 segundos
+    # Hace una pausa de 0.1 segundos,  Sin esta línea, el juego se actualizaría tan rápido como sea posible, lo que podría hacer que sea difícil de jugar.
     time.sleep(0.1)
     
-    # Actualiza la pantalla
+    # se utiliza para forzar a la pantalla a actualizar y mostrar todos los cambios que se han hecho desde la última actualización.
     screen.update()
     
     #llamamos al metodo snake_move() de la clase Snake en el archivo snake.py
     snake.snake_move()
     
-
+        
+    #comparo la distancia entre la posicion de la cabeza de la snake con la distancia a la food
+    if snake.snake_list[0].distance(food) < 15:
+        
+        #si la distancia entre ellos es menor que 10, corre el sgt codigo
+        print("they carshed")
+        
+        food.new_position()
+        
         
 
    

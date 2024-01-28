@@ -91,8 +91,16 @@ while game_is_on:
         
         score.end_game()
         
-    #Dectectamos colision de la snake consigo misma    
+   # Dectectamos colision de la snake consigo misma
+    for i in range(1, len(snake.snake_list)):    
         
+        # Comprobamos la distancia entre la cabeza de la serpiente y el resto de segmentos del cuerpo
+        if snake.snake_list[0].distance(snake.snake_list[i]) < 5:  
+            
+            # Si la distancia es menor que 10, hay una colisión y el juego termina
+            game_is_on = False
+            score.end_game()
+
        
    
     

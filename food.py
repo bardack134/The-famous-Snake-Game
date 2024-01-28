@@ -35,10 +35,10 @@ class Food(Turtle):
 
     def new_position(self):
         # Genera un número aleatorio entre -280 y 280 para la coordenada x
-        new_X=random.randint(-280, 280)
+        new_X=random.randint(-270, 270)
 
         # Genera un número aleatorio entre -280 y 280 para la coordenada y
-        new_Y=random.randint(-280, 280)    
+        new_Y=random.randint(-270, 270)    
         
         # Mueve el objeto Food a la posición (X, Y)
         self.setposition(new_X, new_Y)

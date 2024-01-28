@@ -18,7 +18,8 @@ class Snake():
       # Inicializa la propiedad snake_list del objeto Snake con una lista vacía
       self.snake_list = []
 
-    
+
+    #crea la snake del comienzo de 3 cuadrados de longitud
     def create_snake(self):
         
         # Crea un bucle que se repite 3 veces
@@ -33,6 +34,7 @@ class Snake():
             # Cambia el color de la parte de la serpiente a blanco
             new_segment.color("white")
 
+                       
             # Mueve la parte de la serpiente a la posición (initial_position_x, 0)
             new_segment.setposition(self.initial_position_x, 0)
         
@@ -42,11 +44,12 @@ class Snake():
             # Disminuye la posición horizontal en 20 unidades para la siguiente parte de la serpiente
             self.initial_position_x -= 20
         
-        
             #agregamos los objetos creados "segmentos"  a la lista vacia 
             self.snake_list.append(new_segment)
+            
     
-    
+    #funcion acerca del movimiento de la snake, la snake de posicion 0, se mueve hacia delante, y las demas posiciones toman la posicion de su 
+    # antecesor
     def snake_move(self):
       
       # Para cada segmento de la serpiente, empezando por el último segmento o posicion y terminando con el segundo segmento o posicion dentro de la lista
@@ -65,23 +68,26 @@ class Snake():
       self.snake_list[0].forward(MOVE_DISTANCE)
     
     
+    #metodo que agrega un nuevo segmento a la snake cuando esta come la bolita del juego
     def add_segment(self):   
       
-      # Crea un objeto de la clase Turtle con forma de cuadrado
-      new_segment=Turtle("square").i
-               
+      # Crea un objeto de la clase Turtle con forma de cuadrado 
+      new_segment=Turtle('square')
+       
       #levantamos el lapiz para no dejar marcas cuando movamos los segmentos de la tortuga a la posicion inical x
       new_segment.penup() 
-       
+            
+      #despues de crear el nuevo objeto de la clase Turtle, que sera el nuevo segmento de la snake, con el meotod goto() lo dirigimos inmediatamente
+      #a la ultima posicion de la snake y asi evitamos que por unos segundos se vea ese segmento nuevo creado en la posicion (0,0)      
+      new_segment.goto(self.snake_list[-1].position())
+            
       # Cambia el color de la parte de la serpiente a blanco
-      new_segment.color("white") 
+      new_segment.color("white")
       
-      #agregamos los objetos creados "segmentos"  a la lista vacia 
+      # agregamos  el objeto creado "segmento"  a la lista vacia 'snake_list'  que contiene todaos los segmentos de nuestra snake
       self.snake_list.append(new_segment)
       
-      
-        
-          
+             
     # Define el método para mover la serpiente hacia arriba
     def up(self):
           

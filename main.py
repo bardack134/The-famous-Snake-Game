@@ -83,6 +83,15 @@ while game_is_on:
         snake.add_segment()
         
         score.add_score()
+    
+    #si la snake choca con la pared del juego    
+    if snake.snake_list[0].xcor()>286 or snake.snake_list[0].xcor()<-286 or snake.snake_list[0].ycor()>286 or snake.snake_list[0].ycor()<-286:
+        
+        game_is_on = False
+        
+        score.end_game()
+        
+    #Dectectamos colision de la snake consigo misma    
         
        
    
